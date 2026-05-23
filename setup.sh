@@ -490,7 +490,7 @@ fi
 JVM_OPTS=""
 if [[ -f "$SCRIPT_DIR/user_jvm_args.txt" ]]; then
     JVM_OPTS=$(grep -v '^\s*#' "$SCRIPT_DIR/user_jvm_args.txt" \
-               | grep -v '^\s*$' | tr '\n' ' ')
+               | grep -v '^\s*$' | tr '\n' ' ' || true)
 fi
 
 echo "Starting Forge server..."
