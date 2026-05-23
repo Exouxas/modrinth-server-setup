@@ -1,0 +1,5 @@
+# Files that don't need to be in the Docker build context
+server/
+*.mrpack
+*.jar
+*.log
