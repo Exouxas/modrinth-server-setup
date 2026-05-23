@@ -71,16 +71,19 @@ echo
 # ---------------------------------------------------------------------------
 # Prerequisites
 # ---------------------------------------------------------------------------
-check_cmd() {
-    if ! command -v "$1" &>/dev/null; then
-        echo "Error: '$1' is required but not found in PATH." >&2
-        exit 1
+MISSING=()
+for cmd in curl unzip python3 java; do
+    if ! command -v "$cmd" &>/dev/null; then
+        MISSING+=("$cmd")
     fi
-}
-check_cmd curl
-check_cmd unzip
-check_cmd python3
-check_cmd java
+done
+if [[ ${#MISSING[@]} -gt 0 ]]; then
+    echo "Error: the following required tools are not installed or not in PATH:" >&2
+    for cmd in "${MISSING[@]}"; do
+        echo "  - $cmd" >&2
+    done
+    exit 1
+fi
 
 # ---------------------------------------------------------------------------
 # Resolve version via Modrinth API
