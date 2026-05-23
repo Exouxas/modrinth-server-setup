@@ -90,6 +90,6 @@ server/
 ## Notes
 
 - Only **Forge** is supported as a mod loader currently.
-- The script requires `bash`, `curl`, `unzip`, `python3`, and `java` (17+) to be available.
+- The script requires `bash`, `curl`, `unzip`, `python3`, and `java` (17+) to be available. The `python3` dependency is used solely for JSON parsing and is a candidate to be replaced with `jq` in a future update.
 - Auto-update only applies to the mod files and config overrides — it does not reinstall Forge unless the Minecraft/Forge version changes.
 - The EULA flag (`--agree-eula`) exists for automation convenience. You are still personally responsible for compliance with the [Minecraft EULA](https://aka.ms/MinecraftEULA).
